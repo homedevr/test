@@ -38,14 +38,25 @@ $recordSet = mysqli_query($db,'SELECT * FROM task');
     </tr>
   </thead>
   <tbody>
-
     <?php while($data = mysqli_fetch_assoc($recordSet)){
     ?>
     <tr>
       <td><?php print($data['name']); ?></td>
       <td><?php print($data['content']); ?></td>
       <td><?php print($data['dead_line']); ?></td>
-      <td><?php print($data['status']); ?></td>
+      <td>
+        <form action="status.php" method="post" id="status_form">
+      <select id="status_select" name="status_select_name">
+      <option value="#" selected><?php print($data['status']); ?></option>
+      <option value="todo" >todo</option>
+      <option value="doing" >doing</option>
+      <option value="done">done</option>
+      <option value="canceled">canceled</option>
+      </select>
+      <input type="hidden" name="id" value=" <?php print($data['task_id']);?> ">
+      <input type="submit" value="変更">
+      </form>
+    </td>
       <td><?php print($data['member']); ?></td>
       <td><?php print($data['team']); ?></td>
       <td><form action="update.php" method="post">
@@ -63,6 +74,7 @@ $recordSet = mysqli_query($db,'SELECT * FROM task');
         <input type="submit" value="削除" onclick='return confirm("よろしいですか？");'></form>
       </td>
     </tr>
+
     <?php
        }
      ?>

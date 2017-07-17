@@ -14,7 +14,7 @@ $recordSet = mysqli_query($db,'SELECT * FROM task');
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>タスク一覧</title>
+		<title>todoリスト</title>
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -60,13 +60,13 @@ $recordSet = mysqli_query($db,'SELECT * FROM task');
       <td><?php print($data['member']); ?></td>
       <td><?php print($data['team']); ?></td>
       <td><form action="update.php" method="post">
-      <input type="hidden" name="task_id" value=" <?php print($data['task_id']);?> ">
-      <input type="hidden" name="name" value=" <?php print($data['name']);?> ">
-      <input type="hidden" name="content" value=" <?php print($data['content']);?> ">
-      <input type="hidden" name="dead_line" value=" <?php print($data['dead_line']);?> ">
-      <input type="hidden" name="status" value=" <?php print($data['status']);?> ">
-      <input type="hidden" name="member" value=" <?php print($data['member']);?> ">
-      <input type="hidden" name="team" value=" <?php print($data['team']);?> ">
+      <input type="hidden" name="task_id" value="<?php print($data['task_id']);?>">
+      <input type="hidden" name="name" value="<?php print($data['name']);?>">
+      <input type="hidden" name="content" value="<?php print($data['content']);?>">
+      <input type="hidden" name="dead_line" value="<?php print($data['dead_line']);?>">
+      <input type="hidden" name="status" value="<?php print($data['status']);?>">
+      <input type="hidden" name="member" value="<?php print($data['member']);?>">
+      <input type="hidden" name="team" value="<?php print($data['team']);?>">
         <input type="submit" value="編集"></form>
       </td>
       <td><form action="delete.php" method="post">

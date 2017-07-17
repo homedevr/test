@@ -28,7 +28,9 @@ mysqli_set_charset($db,'utf8');
   $status = $_POST['status'];
   $member = $_POST['member'];
   $team = $_POST['team'];
-  $recordSet = mysqli_query($db,"SELECT * FROM task WHERE name LIKE '%".$name."%'  ");
+  $recordSet = mysqli_query($db,"SELECT * FROM task WHERE name LIKE '%".$name."%'
+  AND content LIKE '%".$content."%' AND dead_line LIKE '%".$dead_line."%'
+  AND status LIKE '%".$status."%' AND member LIKE '%".$member."%' AND team LIKE '%".$team."%'  ");
 ?>
 
   <table class="table table-striped">
@@ -40,6 +42,8 @@ mysqli_set_charset($db,'utf8');
     <th>ステータス</th>
     <th>担当</th>
     <th>所属</th>
+    <th>編集</th>
+    <th>削除</th>
   </tr>
   </thead>
   <tbody>
@@ -48,9 +52,35 @@ mysqli_set_charset($db,'utf8');
     <td><?php print($data['name']); ?></td>
     <td><?php print($data['content']); ?></td>
     <td><?php print($data['dead_line']); ?></td>
-    <td><?php print($data['status']); ?></td>
+    <td>
+      <form action="status.php" method="post" id="status_form">
+    <select id="status_select" name="status_select_name">
+    <option value="#" selected><?php print($data['status']); ?></option>
+    <option value="todo" >todo</option>
+    <option value="doing" >doing</option>
+    <option value="done">done</option>
+    <option value="canceled">canceled</option>
+    </select>
+    <input type="hidden" name="id" value=" <?php print($data['task_id']);?> ">
+    <input type="submit" value="変更">
+    </form>
+  </td>
     <td><?php print($data['member']); ?></td>
     <td><?php print($data['team']); ?></td>
+    <td><form action="update.php" method="post">
+    <input type="hidden" name="task_id" value="<?php print($data['task_id']);?>">
+    <input type="hidden" name="name" value="<?php print($data['name']);?>">
+    <input type="hidden" name="content" value="<?php print($data['content']);?>">
+    <input type="hidden" name="dead_line" value="<?php print($data['dead_line']);?>">
+    <input type="hidden" name="status" value="<?php print($data['status']);?>">
+    <input type="hidden" name="member" value="<?php print($data['member']);?>">
+    <input type="hidden" name="team" value="<?php print($data['team']);?>">
+      <input type="submit" value="編集"></form>
+    </td>
+    <td><form action="delete.php" method="post">
+    <input type="hidden" name="id" value=" <?php print($data['task_id']);?> ">
+      <input type="submit" value="削除" onclick='return confirm("よろしいですか？");'></form>
+    </td>
   </tr>
   <?php } ?>
   </tbody>

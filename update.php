@@ -8,7 +8,7 @@
   タスクの期日：<input type="text" name="dead_line" value="<?php print($_POST['dead_line']);?>"><br>
   タスクのステータス：<input type="text" name="status" value="<?php print($_POST['status']);?>"><br>
   タスクの担当：<input type="text" name="member" value="<?php print($_POST['member']);?>"><br>
-  タスクの所属：<input type="text" name="team" value="<?php print($_POST['team']);?>"><br>
+  メンバーの所属：<input type="text" name="team" value="<?php print($_POST['team']);?>"><br>
   <input type="submit" value="編集完了">
   </form>
   <a href="practice.php">戻る</a>

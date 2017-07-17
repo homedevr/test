@@ -23,7 +23,9 @@ $recordSet = mysqli_query($db,'SELECT * FROM task');
 	</head>
 	<body>
 		<h1>タスク一覧</h1>
-    <br><br>
+    <br>
+    <form action="search.php" method="post">
+      <input type="submit" value="検索"></form>
     <table class="table table-striped">
   <thead>
     <tr>

@@ -12,6 +12,7 @@
    <![endif]-->
  </head>
 <body>
+  <div class="container">
 <h1>検索結果</h1>
 
 
@@ -62,7 +63,7 @@ mysqli_set_charset($db,'utf8');
     <option value="canceled">canceled</option>
     </select>
     <input type="hidden" name="id" value=" <?php print($data['task_id']);?> ">
-    <input type="submit" value="変更">
+    <input type="submit" value="変更" class="btn btn-primary">
     </form>
   </td>
     <td><?php print($data['member']); ?></td>
@@ -75,17 +76,18 @@ mysqli_set_charset($db,'utf8');
     <input type="hidden" name="status" value="<?php print($data['status']);?>">
     <input type="hidden" name="member" value="<?php print($data['member']);?>">
     <input type="hidden" name="team" value="<?php print($data['team']);?>">
-      <input type="submit" value="編集"></form>
+      <input type="submit" value="編集" class="btn btn-primary"></form>
     </td>
     <td><form action="delete.php" method="post">
     <input type="hidden" name="id" value=" <?php print($data['task_id']);?> ">
-      <input type="submit" value="削除" onclick='return confirm("よろしいですか？");'></form>
+      <input type="submit" value="削除" onclick='return confirm("よろしいですか？");' class="btn btn-primary"></form>
     </td>
   </tr>
   <?php } ?>
   </tbody>
 </table>
 <a href="practice.php">トップへ</a>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>

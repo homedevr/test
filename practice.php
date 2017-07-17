@@ -22,10 +22,11 @@ $recordSet = mysqli_query($db,'SELECT * FROM task');
 		<![endif]-->
 	</head>
 	<body>
+    <div class="container">
 		<h1>タスク一覧</h1>
     <br>
-    <form action="search.php" method="post">
-      <input type="submit" value="検索"></form>
+    <div align=right><form action="search.php" method="post">
+      <input type="submit" value="検索" class="btn btn-primary"></form></div>
     <table class="table table-striped">
   <thead>
     <tr>
@@ -54,9 +55,9 @@ $recordSet = mysqli_query($db,'SELECT * FROM task');
       <option value="doing" >doing</option>
       <option value="done">done</option>
       <option value="canceled">canceled</option>
-      </select>
+    </select>
       <input type="hidden" name="id" value=" <?php print($data['task_id']);?> ">
-      <input type="submit" value="変更">
+      <input type="submit" value="変更" class="btn btn-primary">
       </form>
     </td>
       <td><?php print($data['member']); ?></td>
@@ -69,11 +70,11 @@ $recordSet = mysqli_query($db,'SELECT * FROM task');
       <input type="hidden" name="status" value="<?php print($data['status']);?>">
       <input type="hidden" name="member" value="<?php print($data['member']);?>">
       <input type="hidden" name="team" value="<?php print($data['team']);?>">
-        <input type="submit" value="編集"></form>
+        <input type="submit" value="編集" class="btn btn-primary"></form>
       </td>
       <td><form action="delete.php" method="post">
       <input type="hidden" name="id" value=" <?php print($data['task_id']);?> ">
-        <input type="submit" value="削除" onclick='return confirm("よろしいですか？");'></form>
+        <input type="submit" value="削除" onclick='return confirm("よろしいですか？");' class="btn btn-primary"></form>
       </td>
     </tr>
 
@@ -87,11 +88,11 @@ $recordSet = mysqli_query($db,'SELECT * FROM task');
 <br><br><br>
 <div align="center">
 <form action="register.php" method="post">
-  <input type="submit" value="新規登録"></form></div>
+  <input type="submit" value="新規登録" class="btn btn-primary"></form></div>
 
 
 
-
+</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 	</body>

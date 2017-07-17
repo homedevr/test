@@ -14,6 +14,7 @@
 <body>
   <div class="container">
   <h1>新規登録</h1>
+  <br>
   <form action="register_do.php" method="post">
   タスクの名前：<input type="text" name="name"><br>
   タスクの内容：<input type="text" name="content"><br>
@@ -21,8 +22,10 @@
   タスクのステータス：<input type="text" name="status"><br>
   タスクの担当：<input type="text" name="member"><br>
   メンバーの所属：<input type="text" name="team"><br>
+  <br>
   <input type="submit" value="登録" class="btn btn-primary">
   </form>
+  <br>
   <a href="practice.php">戻る</a>
 </div>
 
